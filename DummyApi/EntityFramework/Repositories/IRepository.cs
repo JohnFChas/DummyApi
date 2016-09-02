@@ -31,5 +31,7 @@ namespace DummyApi.EntityFramework.Repositories
 
         Channel GetChannel(int id);
         Channel[] GetChannels();
+        bool CreateChannel(Channel newChannel);
+        bool DeleteChannel(int id);
     }
 }

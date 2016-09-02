@@ -2,6 +2,7 @@ namespace DummyApi.Migrations
 {
     using Models.EntityModels;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -24,7 +25,21 @@ namespace DummyApi.Migrations
                 new Post { Id = 5, Title = "Post 5", Author = "John Doe", PostDate = DateTime.Now, Body = "Post body" }
             };
 
+            var messages = new Message[]
+            {
+                new Message { Id = 1, Author = "John Doe", TimeSent = new DateTime(), ChannelId = 1 }
+            };
+
+            var channels = new Channel[]
+            {
+                new Channel { Id = 1, Name = "Global", Messages = new List<Message>() }
+            };
+
+            channels[0].Messages.AddRange(messages);
+
             context.Posts.AddOrUpdate(posts);
+            context.Messages.AddOrUpdate(messages);
+            context.Channels.AddOrUpdate(channels);
         }
     }
 }

@@ -24,11 +24,17 @@ namespace DummyApi.EntityFramework.Repositories
 
         public Post GetPost(int id)
         {
+            if (db.Posts.Count() == 0)
+                return null;
+
             return db.Posts.SingleOrDefault(p => p.Id == id);
         }
 
         public Post[] GetPosts()
         {
+            if (db.Posts.Count() == 0)
+                return null;
+
             return db.Posts.ToArray();
         }
 
@@ -38,6 +44,9 @@ namespace DummyApi.EntityFramework.Repositories
 
         public Message GetMessage(int id)
         {
+            if (db.Messages.Count() == 0)
+                return null;
+
             return db.Messages.Include(m => m.Channel).SingleOrDefault(m => m.Id == id);
         }
 
@@ -79,12 +88,42 @@ namespace DummyApi.EntityFramework.Repositories
 
         public Channel GetChannel(int id)
         {
+            if (db.Channels.Count() == 0)
+                return null;
+
             return db.Channels.Include(c => c.Messages).SingleOrDefault(c => c.Id == id);
         }
 
         public Channel[] GetChannels()
         {
+            if (db.Channels.Count() == 0)
+                return null;
+
             return db.Channels.Include(c => c.Messages).ToArray();
+        }
+
+        public bool CreateChannel(Channel newChannel)
+        {
+            if (db.Channels.Add(newChannel) != null)
+            {
+                db.SaveChanges();
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool DeleteChannel(int id)
+        {
+            var channel = db.Channels.SingleOrDefault(m => m.Id == id);
+
+            if (channel != null && db.Channels.Remove(channel) != null)
+            {
+                db.SaveChanges();
+                return true;
+            }
+
+            return false;
         }
 
         public void Dispose()

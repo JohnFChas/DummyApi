@@ -16,6 +16,7 @@ namespace DummyApi.Models.EntityModels
         [JsonProperty("timeSent")]
         public DateTime TimeSent { get; set; }
         [JsonProperty("body")]
+        public string Body { get; set; }
 
         public int ChannelId { get; set; }
         [JsonProperty("channel")]

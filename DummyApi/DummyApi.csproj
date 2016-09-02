@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ChannelsController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="EntityFramework\Contexts\ApiContext.cs" />
@@ -114,6 +115,10 @@
     <Compile Include="Migrations\201609021123221_Message_Channel.cs" />
     <Compile Include="Migrations\201609021123221_Message_Channel.Designer.cs">
       <DependentUpon>201609021123221_Message_Channel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609021150583_Message_Body.cs" />
+    <Compile Include="Migrations\201609021150583_Message_Body.Designer.cs">
+      <DependentUpon>201609021150583_Message_Body.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EntityModels\Channel.cs" />
@@ -141,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609021123221_Message_Channel.resx">
       <DependentUpon>201609021123221_Message_Channel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609021150583_Message_Body.resx">
+      <DependentUpon>201609021150583_Message_Body.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

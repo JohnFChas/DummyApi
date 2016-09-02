@@ -31,12 +31,7 @@ namespace DummyApi.Controllers
         [ResponseType(typeof(Message))]
         public IHttpActionResult GetMessage(int id)
         {
-            var message = repository.GetMessage(id);
-
-            if (message != null)
-                return Ok(message);
-
-            return NotFound();
+            return Ok(repository.GetMessage(id));
         }
 
         [HttpPost]
@@ -57,6 +52,12 @@ namespace DummyApi.Controllers
                 return NotFound();
 
             return Ok();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            repository.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

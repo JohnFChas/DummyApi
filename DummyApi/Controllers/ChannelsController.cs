@@ -8,29 +8,26 @@ using System.Web.Http;
 
 namespace DummyApi.Controllers
 {
-    [RoutePrefix("api/posts")]
-    public class PostsController : ApiController
+    public class ChannelsController : ApiController
     {
         IRepository repository;
 
-        public PostsController()
+        public ChannelsController()
         {
             repository = new DbRepository();
         }
 
         [HttpGet]
-        public IHttpActionResult GetPosts()
+        public IHttpActionResult GetChannels()
         {
-            return Ok(repository.GetPosts());
+            return Ok(repository.GetChannels());
         }
 
         [HttpGet]
-        public IHttpActionResult GetPost(int id)
+        public IHttpActionResult GetChannel(int id)
         {
-            return Ok(repository.GetPost(id));
+            return Ok(repository.GetChannel(id));
         }
-
-
 
         protected override void Dispose(bool disposing)
         {
