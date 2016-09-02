@@ -7,6 +7,7 @@ using System.Web;
 
 namespace DummyApi.EntityFramework.Contexts
 {
+    [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public class ApiContext : DbContext
     {
         public ApiContext()
@@ -18,5 +19,7 @@ namespace DummyApi.EntityFramework.Contexts
         {}
 
         public DbSet<Post> Posts { get; set; }
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<Channel> Channels { get; set; }
     }
 }
