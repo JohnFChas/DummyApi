@@ -27,7 +27,7 @@ namespace DummyApi.Migrations
 
             var messages = new Message[]
             {
-                new Message { Id = 1, Author = "John Doe", TimeSent = new DateTime(), ChannelId = 1 }
+                new Message { Id = 1, Author = "John Doe", TimeSent = new DateTime(), ChannelId = 1, Body = "Hello #Global!" }
             };
 
             var channels = new Channel[]
