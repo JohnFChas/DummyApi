@@ -60,6 +60,12 @@ namespace DummyApi.EntityFramework.Repositories
 
         public bool CreateMessage(Message newMessage)
         {
+            var channel = db.Channels.SingleOrDefault(c => c.Id == newMessage.ChannelId);
+            if (channel == null)
+                newMessage.ChannelId = 1;
+
+            newMessage.TimeSent = DateTime.Now;
+
             if (db.Messages.Add(newMessage) != null)
             {
                 db.SaveChanges();

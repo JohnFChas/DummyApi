@@ -1,12 +1,14 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace DummyApi.Models.EntityModels
 {
     [JsonObject]
+    [Table("messages")]
     public class Message
     {
         [JsonProperty("id")]
@@ -18,6 +20,7 @@ namespace DummyApi.Models.EntityModels
         [JsonProperty("body")]
         public string Body { get; set; }
 
+        [JsonProperty("channelId")]
         public int ChannelId { get; set; }
         [JsonProperty("channel")]
         public virtual Channel Channel { get; set; }
