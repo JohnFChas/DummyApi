@@ -38,6 +38,32 @@ namespace DummyApi.EntityFramework.Repositories
             return db.Posts.ToArray();
         }
 
+        public bool CreatePost(Post newPost)
+        {
+            newPost.PostDate = DateTime.Now;
+
+            if (db.Posts.Add(newPost) != null)
+            {
+                db.SaveChanges();
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool DeletePost(int id)
+        {
+            var post = db.Posts.SingleOrDefault(p => p.Id == id);
+
+            if (post != null && db.Posts.Remove(post) != null)
+            {
+                db.SaveChanges();
+                return true;
+            }
+
+            return false;
+        }
+
         /* ---------------------------------------------
                             MESSAGES
         --------------------------------------------- */

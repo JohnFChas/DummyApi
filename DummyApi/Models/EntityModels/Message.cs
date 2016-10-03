@@ -22,7 +22,7 @@ namespace DummyApi.Models.EntityModels
 
         [JsonProperty("channelId")]
         public int ChannelId { get; set; }
-        [JsonProperty("channel")]
+        [JsonIgnore]
         public virtual Channel Channel { get; set; }
     }
 }

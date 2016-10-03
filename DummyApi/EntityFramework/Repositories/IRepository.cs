@@ -15,6 +15,8 @@ namespace DummyApi.EntityFramework.Repositories
 
         Post GetPost(int id);
         Post[] GetPosts();
+        bool CreatePost(Post newPost);
+        bool DeletePost(int id);
 
         /* ---------------------------------------------
                             MESSAGES
