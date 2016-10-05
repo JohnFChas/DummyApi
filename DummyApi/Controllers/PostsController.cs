@@ -22,18 +22,21 @@ namespace DummyApi.Controllers
         }
 
         [HttpGet]
+        [Route("")]
         public IHttpActionResult GetPosts()
         {
             return Ok(repository.GetPosts());
         }
 
         [HttpGet]
+        [Route("{id}")]
         public IHttpActionResult GetPost(int id)
         {
             return Ok(repository.GetPost(id));
         }
 
         [HttpPost]
+        [Route("")]
         public IHttpActionResult CreatePost(Post post)
         {
             if (post == null)
@@ -60,6 +63,7 @@ namespace DummyApi.Controllers
         }
 
         [HttpDelete]
+        [Route("{id}")]
         public IHttpActionResult DeletePost(int id)
         {
             if (!repository.DeletePost(id))
