@@ -38,17 +38,24 @@ namespace DummyApi.EntityFramework.Repositories
             return db.Posts.ToArray();
         }
 
-        public bool CreatePost(Post newPost)
+        public Post CreatePost(Post newPost)
         {
             newPost.PostDate = DateTime.Now;
+            var post = db.Posts.Add(newPost);
 
-            if (db.Posts.Add(newPost) != null)
-            {
+            if (post != null)
                 db.SaveChanges();
-                return true;
-            }
 
-            return false;
+            return post;
+        }
+
+        public Post UpdatePost(Post post)
+        {
+            db.Posts.Attach(post);
+            var postEntry = db.Entry(post);
+            postEntry.State = EntityState.Modified;
+            db.SaveChanges();
+            return post;
         }
 
         public bool DeletePost(int id)
@@ -62,6 +69,32 @@ namespace DummyApi.EntityFramework.Repositories
             }
 
             return false;
+        }
+
+        public Post UpvotePost(int id)
+        {
+            var post = db.Posts.SingleOrDefault(p => p.Id == id);
+            
+            if (post != null)
+            {
+                post.Upvotes += 1;
+                db.SaveChanges();
+            }
+
+            return post;
+        }
+
+        public Post DownvotePost(int id)
+        {
+            var post = db.Posts.SingleOrDefault(p => p.Id == id);
+
+            if (post != null)
+            {
+                post.Downvotes += 1;
+                db.SaveChanges();
+            }
+
+            return post;
         }
 
         /* ---------------------------------------------
@@ -84,7 +117,7 @@ namespace DummyApi.EntityFramework.Repositories
             return db.Messages.Include(m => m.Channel).ToArray();
         }
 
-        public bool CreateMessage(Message newMessage)
+        public Message CreateMessage(Message newMessage)
         {
             var channel = db.Channels.SingleOrDefault(c => c.Id == newMessage.ChannelId);
             if (channel == null)
@@ -92,13 +125,12 @@ namespace DummyApi.EntityFramework.Repositories
 
             newMessage.TimeSent = DateTime.Now;
 
-            if (db.Messages.Add(newMessage) != null)
-            {
-                db.SaveChanges();
-                return true;
-            }
+            var message = db.Messages.Add(newMessage);
 
-            return false;
+            if (message != null)
+                db.SaveChanges();
+
+            return message;
         }
 
         public bool DeleteMessage(int id)
@@ -134,15 +166,14 @@ namespace DummyApi.EntityFramework.Repositories
             return db.Channels.Include(c => c.Messages).ToArray();
         }
 
-        public bool CreateChannel(Channel newChannel)
+        public Channel CreateChannel(Channel newChannel)
         {
-            if (db.Channels.Add(newChannel) != null)
-            {
-                db.SaveChanges();
-                return true;
-            }
+            var channel = db.Channels.Add(newChannel);
 
-            return false;
+            if (channel != null)
+                db.SaveChanges();
+
+            return channel;
         }
 
         public bool DeleteChannel(int id)

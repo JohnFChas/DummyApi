@@ -21,5 +21,9 @@ namespace DummyApi.Models.EntityModels
         public DateTime PostDate { get; set; }
         [JsonProperty("body")]
         public string Body { get; set; }
+        [JsonProperty("upvotes")]
+        public int Upvotes { get; set; } = 0;
+        [JsonProperty("downvotes")]
+        public int Downvotes { get; set; } = 0;
     }
 }

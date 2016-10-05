@@ -36,10 +36,27 @@ namespace DummyApi.Controllers
         [HttpPost]
         public IHttpActionResult CreatePost(Post post)
         {
-            if (post == null || !repository.CreatePost(post))
+            if (post == null)
                 return BadRequest();
 
-            return Ok();
+            var data = repository.CreatePost(post);
+
+            if (data == null)
+                return InternalServerError();
+
+            return Ok(data);
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        public IHttpActionResult UpdatePost(int id, Post post)
+        {
+            if (post == null || id != post.Id)
+                return BadRequest();
+
+            var data = repository.UpdatePost(post);
+
+            return Ok(data);
         }
 
         [HttpDelete]
@@ -49,6 +66,30 @@ namespace DummyApi.Controllers
                 return BadRequest();
 
             return Ok();
+        }
+
+        [Route("upvote/{id}")]
+        [HttpPut]
+        public IHttpActionResult UpvotePost(int id)
+        {
+            var data = repository.UpvotePost(id);
+
+            if (data == null)
+                return InternalServerError();
+
+            return Ok(data);
+        }
+
+        [Route("downvote/{id}")]
+        [HttpPut]
+        public IHttpActionResult DownvotePost(int id)
+        {
+            var data = repository.DownvotePost(id);
+
+            if (data == null)
+                return InternalServerError();
+
+            return Ok(data);
         }
 
         protected override void Dispose(bool disposing)

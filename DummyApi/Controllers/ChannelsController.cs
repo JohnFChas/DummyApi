@@ -35,8 +35,9 @@ namespace DummyApi.Controllers
         [HttpPost]
         public IHttpActionResult CreateChannel(Channel channel)
         {
-            if (repository.CreateChannel(channel))
-                return Ok();
+            var data = repository.CreateChannel(channel);
+            if (data != null)
+                return Ok(data);
 
             return BadRequest();
         }

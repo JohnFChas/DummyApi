@@ -166,6 +166,14 @@
     <Compile Include="Migrations\201609021150583_Message_Body.Designer.cs">
       <DependentUpon>201609021150583_Message_Body.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610041426139_posts_upvote.cs" />
+    <Compile Include="Migrations\201610041426139_posts_upvote.Designer.cs">
+      <DependentUpon>201610041426139_posts_upvote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610041445107_post_downvote.cs" />
+    <Compile Include="Migrations\201610041445107_post_downvote.Designer.cs">
+      <DependentUpon>201610041445107_post_downvote.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EntityModels\Channel.cs" />
     <Compile Include="Models\EntityModels\Message.cs" />
@@ -197,6 +205,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609021150583_Message_Body.resx">
       <DependentUpon>201609021150583_Message_Body.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610041426139_posts_upvote.resx">
+      <DependentUpon>201610041426139_posts_upvote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610041445107_post_downvote.resx">
+      <DependentUpon>201610041445107_post_downvote.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

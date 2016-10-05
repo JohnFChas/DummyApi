@@ -42,14 +42,18 @@ namespace DummyApi.Controllers
         [ResponseType(typeof(void))]
         public IHttpActionResult CreateMessage(Message message)
         {
-            if (message == null || !repository.CreateMessage(message))
+            if (message == null)
                 return BadRequest();
+            var data = repository.CreateMessage(message);
+
+            if (data == null)
+                return InternalServerError();
 
             var hub = GlobalHost.ConnectionManager.GetHubContext<ChatHub>();
             message.Channel = null;
-            hub.Clients.All.recieveMessage(message);
+            hub.Clients.All.recieveMessage(data);
 
-            return Ok();
+            return Ok(data);
         }
 
         [HttpDelete]

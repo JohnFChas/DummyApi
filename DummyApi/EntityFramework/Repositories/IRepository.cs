@@ -15,8 +15,11 @@ namespace DummyApi.EntityFramework.Repositories
 
         Post GetPost(int id);
         Post[] GetPosts();
-        bool CreatePost(Post newPost);
+        Post CreatePost(Post newPost);
+        Post UpdatePost(Post post);
         bool DeletePost(int id);
+        Post UpvotePost(int id);
+        Post DownvotePost(int id);
 
         /* ---------------------------------------------
                             MESSAGES
@@ -24,7 +27,7 @@ namespace DummyApi.EntityFramework.Repositories
 
         Message GetMessage(int id);
         Message[] GetMessages();
-        bool CreateMessage(Message newMessage);
+        Message CreateMessage(Message newMessage);
         bool DeleteMessage(int id);
 
         /* ---------------------------------------------
@@ -33,7 +36,7 @@ namespace DummyApi.EntityFramework.Repositories
 
         Channel GetChannel(int id);
         Channel[] GetChannels();
-        bool CreateChannel(Channel newChannel);
+        Channel CreateChannel(Channel newChannel);
         bool DeleteChannel(int id);
     }
 }
