@@ -154,25 +154,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609020841132_InitialCreate.cs" />
-    <Compile Include="Migrations\201609020841132_InitialCreate.Designer.cs">
-      <DependentUpon>201609020841132_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609021123221_Message_Channel.cs" />
-    <Compile Include="Migrations\201609021123221_Message_Channel.Designer.cs">
-      <DependentUpon>201609021123221_Message_Channel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609021150583_Message_Body.cs" />
-    <Compile Include="Migrations\201609021150583_Message_Body.Designer.cs">
-      <DependentUpon>201609021150583_Message_Body.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610041426139_posts_upvote.cs" />
-    <Compile Include="Migrations\201610041426139_posts_upvote.Designer.cs">
-      <DependentUpon>201610041426139_posts_upvote.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610041445107_post_downvote.cs" />
-    <Compile Include="Migrations\201610041445107_post_downvote.Designer.cs">
-      <DependentUpon>201610041445107_post_downvote.cs</DependentUpon>
+    <Compile Include="Migrations\201610051429544_InitialCreate.cs" />
+    <Compile Include="Migrations\201610051429544_InitialCreate.Designer.cs">
+      <DependentUpon>201610051429544_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EntityModels\Channel.cs" />
@@ -197,20 +181,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609020841132_InitialCreate.resx">
-      <DependentUpon>201609020841132_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609021123221_Message_Channel.resx">
-      <DependentUpon>201609021123221_Message_Channel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609021150583_Message_Body.resx">
-      <DependentUpon>201609021150583_Message_Body.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610041426139_posts_upvote.resx">
-      <DependentUpon>201610041426139_posts_upvote.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610041445107_post_downvote.resx">
-      <DependentUpon>201610041445107_post_downvote.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610051429544_InitialCreate.resx">
+      <DependentUpon>201610051429544_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
