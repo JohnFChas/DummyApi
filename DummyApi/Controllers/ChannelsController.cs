@@ -10,6 +10,7 @@ using System.Web.Http.Cors;
 
 namespace DummyApi.Controllers
 {
+    [RoutePrefix("api/channels")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ChannelsController : ApiController
     {
@@ -21,18 +22,21 @@ namespace DummyApi.Controllers
         }
 
         [HttpGet]
+        [Route("")]
         public IHttpActionResult GetChannels()
         {
             return Ok(repository.GetChannels());
         }
 
         [HttpGet]
+        [Route("{id}")]
         public IHttpActionResult GetChannel(int id)
         {
             return Ok(repository.GetChannel(id));
         }
 
         [HttpPost]
+        [Route("")]
         public IHttpActionResult CreateChannel(Channel channel)
         {
             var data = repository.CreateChannel(channel);
@@ -40,6 +44,16 @@ namespace DummyApi.Controllers
                 return Ok(data);
 
             return BadRequest();
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public IHttpActionResult DeleteChannel(int id)
+        {
+            if (!repository.DeleteChannel(id))
+                return BadRequest();
+
+            return Ok();
         }
 
         protected override void Dispose(bool disposing)
