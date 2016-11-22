@@ -134,6 +134,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
+    <None Include="Properties\PublishProfiles\DummpyApiFS.pubxml" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
@@ -158,6 +159,10 @@
     <Compile Include="Migrations\201611221256317_InitialCreate.cs" />
     <Compile Include="Migrations\201611221256317_InitialCreate.Designer.cs">
       <DependentUpon>201611221256317_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611221419189_Thread_name.cs" />
+    <Compile Include="Migrations\201611221419189_Thread_name.Designer.cs">
+      <DependentUpon>201611221419189_Thread_name.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EntityModels\Channel.cs" />
@@ -185,6 +190,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201611221256317_InitialCreate.resx">
       <DependentUpon>201611221256317_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611221419189_Thread_name.resx">
+      <DependentUpon>201611221419189_Thread_name.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

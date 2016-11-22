@@ -1,4 +1,5 @@
 ﻿using DummyApi.EntityFramework.Repositories;
+using DummyApi.Models.EntityModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,46 @@ namespace DummyApi.Controllers
         public IHttpActionResult GetThreads()
         {
             return Ok(repository.GetThreads());
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        public IHttpActionResult GetThread(int id)
+        {
+            var thread = repository.GetThread(id);
+
+            if (thread != null)
+                return Ok(thread);
+
+            return NotFound();
+        }
+
+        [HttpPost]
+        [Route("")]
+        public IHttpActionResult CreateThread(Thread thread)
+        {
+            var data = repository.CreateThread(thread);
+
+            if (data != null)
+                return Ok(data);
+
+            return BadRequest();
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public IHttpActionResult DeleteThread(int id)
+        {
+            if (!repository.DeleteThread(id))
+                return BadRequest();
+
+            return Ok();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            repository.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

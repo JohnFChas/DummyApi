@@ -13,7 +13,9 @@ namespace DummyApi.Models.EntityModels
     {
         [JsonProperty("id")]
         public int Id { get; set; }
-        
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
         [JsonProperty("posts")]
         public virtual List<Post> Posts { get; set; }
     }

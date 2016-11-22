@@ -32,7 +32,12 @@ namespace DummyApi.Controllers
         [Route("{id}")]
         public IHttpActionResult GetChannel(int id)
         {
-            return Ok(repository.GetChannel(id));
+            var channel = repository.GetChannel(id);
+
+            if (channel != null)
+                return Ok(channel);
+
+            return BadRequest();
         }
 
         [HttpPost]

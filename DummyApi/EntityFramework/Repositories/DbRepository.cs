@@ -18,6 +18,7 @@ namespace DummyApi.EntityFramework.Repositories
 
         ApiContext db = new ApiContext(CONNECTION);
 
+        #region POSTS
         /* ---------------------------------------------
                              POSTS
         --------------------------------------------- */
@@ -96,7 +97,9 @@ namespace DummyApi.EntityFramework.Repositories
 
             return post;
         }
+        #endregion
 
+        #region THREADS
         /* ---------------------------------------------
                             THREADS
         --------------------------------------------- */
@@ -113,14 +116,23 @@ namespace DummyApi.EntityFramework.Repositories
 
         public Thread CreateThread(Thread newThread)
         {
-            throw new NotImplementedException();
+            var thread = db.Threads.Add(newThread);
+
+            if (thread != null)
+                db.SaveChanges();
+
+            thread.Posts = new List<Post>();
+
+            return thread;
         }
 
         public bool DeleteThread(int id)
         {
             throw new NotImplementedException();
         }
+        #endregion
 
+        #region MESSAGES
         /* ---------------------------------------------
                             MESSAGES
         --------------------------------------------- */
@@ -169,7 +181,9 @@ namespace DummyApi.EntityFramework.Repositories
 
             return false;
         }
+        #endregion
 
+        #region CHANNELS
         /* ---------------------------------------------
                             CHANNELS
         --------------------------------------------- */
@@ -197,6 +211,8 @@ namespace DummyApi.EntityFramework.Repositories
             if (channel != null)
                 db.SaveChanges();
 
+            channel.Messages = new List<Message>();
+
             return channel;
         }
 
@@ -212,6 +228,7 @@ namespace DummyApi.EntityFramework.Repositories
 
             return false;
         }
+        #endregion
 
         public void Dispose()
         {

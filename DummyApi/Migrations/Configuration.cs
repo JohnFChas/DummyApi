@@ -27,7 +27,7 @@ namespace DummyApi.Migrations
 
             var threads = new Thread[]
             {
-                new Thread { Id = 1, Posts = new List<Post>() }
+                new Thread { Id = 1, Name = "Welcome!", Posts = new List<Post>() }
             };
 
             var messages = new Message[]
