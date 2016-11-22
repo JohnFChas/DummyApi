@@ -41,6 +41,17 @@ namespace DummyApi.Migrations
                         Body = c.String(unicode: false),
                         Upvotes = c.Int(nullable: false),
                         Downvotes = c.Int(nullable: false),
+                        ThreadId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Threads", t => t.ThreadId, cascadeDelete: true)
+                .Index(t => t.ThreadId);
+            
+            CreateTable(
+                "dbo.Threads",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -48,8 +59,11 @@ namespace DummyApi.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.posts", "ThreadId", "dbo.Threads");
             DropForeignKey("dbo.messages", "ChannelId", "dbo.channels");
+            DropIndex("dbo.posts", new[] { "ThreadId" });
             DropIndex("dbo.messages", new[] { "ChannelId" });
+            DropTable("dbo.Threads");
             DropTable("dbo.posts");
             DropTable("dbo.messages");
             DropTable("dbo.channels");

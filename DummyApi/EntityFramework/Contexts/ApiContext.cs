@@ -19,6 +19,7 @@ namespace DummyApi.EntityFramework.Contexts
         {}
 
         public DbSet<Post> Posts { get; set; }
+        public DbSet<Thread> Threads { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Channel> Channels { get; set; }
     }

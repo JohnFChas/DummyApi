@@ -98,6 +98,30 @@ namespace DummyApi.EntityFramework.Repositories
         }
 
         /* ---------------------------------------------
+                            THREADS
+        --------------------------------------------- */
+
+        public Thread GetThread(int id)
+        {
+            return db.Threads.SingleOrDefault(t => t.Id == id);
+        }
+
+        public Thread[] GetThreads()
+        {
+            return db.Threads.ToArray();
+        }
+
+        public Thread CreateThread(Thread newThread)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteThread(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        /* ---------------------------------------------
                             MESSAGES
         --------------------------------------------- */
 

@@ -22,6 +22,15 @@ namespace DummyApi.EntityFramework.Repositories
         Post DownvotePost(int id);
 
         /* ---------------------------------------------
+                            THREADS
+        --------------------------------------------- */
+
+        Thread GetThread(int id);
+        Thread[] GetThreads();
+        Thread CreateThread(Thread newThread);
+        bool DeleteThread(int id);
+
+        /* ---------------------------------------------
                             MESSAGES
         --------------------------------------------- */
 

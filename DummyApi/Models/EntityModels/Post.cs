@@ -25,5 +25,10 @@ namespace DummyApi.Models.EntityModels
         public int Upvotes { get; set; } = 0;
         [JsonProperty("downvotes")]
         public int Downvotes { get; set; } = 0;
+
+        [JsonProperty("threadId")]
+        public int ThreadId { get; set; }
+        [JsonIgnore]
+        public virtual Thread Thread { get; set; }
     }
 }

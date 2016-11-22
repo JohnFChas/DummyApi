@@ -13,7 +13,7 @@ namespace DummyApi.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201610051429544_InitialCreate"; }
+            get { return "201611221256317_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source
