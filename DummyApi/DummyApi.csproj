@@ -149,7 +149,7 @@
     <Compile Include="Controllers\ChannelsController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
-    <Compile Include="Controllers\ThreadController.cs" />
+    <Compile Include="Controllers\ThreadsController.cs" />
     <Compile Include="EntityFramework\Contexts\ApiContext.cs" />
     <Compile Include="EntityFramework\Repositories\DbRepository.cs" />
     <Compile Include="EntityFramework\Repositories\IRepository.cs" />

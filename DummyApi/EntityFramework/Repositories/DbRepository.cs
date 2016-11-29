@@ -128,7 +128,17 @@ namespace DummyApi.EntityFramework.Repositories
 
         public bool DeleteThread(int id)
         {
-            throw new NotImplementedException();
+            var thread = db.Threads.SingleOrDefault(t => t.Id == id);
+
+            var deletedThread = db.Threads.Remove(thread);
+
+            if (deletedThread != null)
+            { 
+                db.SaveChanges();
+                return true;
+            }
+
+            return false;
         }
         #endregion
 
