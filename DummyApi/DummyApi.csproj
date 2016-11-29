@@ -135,6 +135,7 @@
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
     <None Include="Properties\PublishProfiles\DummpyApiFS.pubxml" />
+    <None Include="Properties\PublishProfiles\DummyApi FS.pubxml" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
